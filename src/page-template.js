@@ -1,13 +1,13 @@
 const generateManager = managerData => {
     const html = "";
     html += `    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${manager.getRole()}</div>
+        <div class="card-header">${managerData.getRole()}</div>
             <div class="card-body">
             <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${manager.getName()}</p>
-            <p class="card-text">ID: ${manager.getID()}</p>
-            <p class="card-text">Email: ${manager.getEmail()}</p>
-            <p class="card-text">Office #: ${manager.getOfficeNumber()}</p>
+            <p class="card-text">${managerData.getName()}</p>
+            <p class="card-text">ID: ${managerData.getID()}</p>
+            <p class="card-text">Email: ${managerData.getEmail()}</p>
+            <p class="card-text">Office #: ${managerData.getOfficeNumber()}</p>
         </div>
     </div>
 `
@@ -20,13 +20,13 @@ const generateEngineer = engineersData => {
     iterns.forEach(intern => {
         html += `
     <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${engineer.getRole()}</div>
+        <div class="card-header">${engineersData.getRole()}</div>
             <div class="card-body">
             <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${engineer.getName()}</p>
-            <p class="card-text">ID: ${engineer.getID()}</p>
-            <p class="card-text">Email: ${engineer.getEmail()}</p>
-            <p class="card-text">Office #: ${engineer.getGithub()}</p>
+            <p class="card-text">${engineersData.getName()}</p>
+            <p class="card-text">ID: ${engineersData.getID()}</p>
+            <p class="card-text">Email: ${engineersData.getEmail()}</p>
+            <p class="card-text">Office #: ${engineersData.getGithub()}</p>
         </div>
     </div>
 `
@@ -40,13 +40,13 @@ const generateIntern = internsData => {
     iterns.forEach(intern => {
         html += `
     <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${intern.getRole()}</div>
+        <div class="card-header">${internsData.getRole()}</div>
             <div class="card-body">
             <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${intern.getName()}</p>
-            <p class="card-text">ID: ${intern.getID()}</p>
-            <p class="card-text">Email: ${intern.getEmail()}</p>
-            <p class="card-text">Office #: ${intern.getSchool()}</p>
+            <p class="card-text">${internsData.getName()}</p>
+            <p class="card-text">ID: ${internsData.getID()}</p>
+            <p class="card-text">Email: ${internsData.getEmail()}</p>
+            <p class="card-text">Office #: ${internsData.getSchool()}</p>
         </div>
     </div>
 `
