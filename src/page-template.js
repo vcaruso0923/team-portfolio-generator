@@ -1,20 +1,24 @@
-const generateManager = function() {
-    return `
-    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${this.manager.getRole()}</div>
+const generateManager = managerData => {
+    const html = "";
+    html += `    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
+        <div class="card-header">${manager.getRole()}</div>
             <div class="card-body">
             <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${this.manager.getName()}</p>
-            <p class="card-text">ID: ${this.manager.getID()}</p>
-            <p class="card-text">Email: ${this.manager.getEmail()}</p>
-            <p class="card-text">Office #: ${this.manager.getOfficeNumber()}</p>
+            <p class="card-text">${manager.getName()}</p>
+            <p class="card-text">ID: ${manager.getID()}</p>
+            <p class="card-text">Email: ${manager.getEmail()}</p>
+            <p class="card-text">Office #: ${manager.getOfficeNumber()}</p>
         </div>
     </div>
 `
+    return html;
+
 }
 
-const generateEngineer = generateEngineerData => {
-    return `
+const generateEngineer = engineersData => {
+    const html = "";
+    iterns.forEach(intern => {
+        html += `
     <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
         <div class="card-header">${engineer.getRole()}</div>
             <div class="card-body">
@@ -26,10 +30,15 @@ const generateEngineer = generateEngineerData => {
         </div>
     </div>
 `
+    });
+    return html;
+
 }
 
-const generateIntern = generateInternData => {
-    return `
+const generateIntern = internsData => {
+    const html = "";
+    iterns.forEach(intern => {
+        html += `
     <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
         <div class="card-header">${intern.getRole()}</div>
             <div class="card-body">
@@ -41,11 +50,13 @@ const generateIntern = generateInternData => {
         </div>
     </div>
 `
+    });
+    return html;
 }
 
 module.exports = templateData => {
     console.log(
-    `
+        `
     <!DOCTYPE html>
     <html lang="en">
   
@@ -66,9 +77,9 @@ module.exports = templateData => {
       </header>
 
       <main class="row">
-        ${generateManager()}
-        {generateEngineer()}
-        {generateIntern()}
+        ${generateManager(templateData.manager)}
+        ${generateEngineer(templateData.engineers)}
+        ${generateIntern(templateData.interns)}
       </main>
 
     </body>
