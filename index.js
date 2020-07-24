@@ -2,8 +2,25 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
-const {writeFile, copyFile} = require('./utils/generate-site.js')
+const { writeFile, copyFile } = require('./utils/generate-site.js')
 const generatePage = require('./src/page-template.js');
+
+const createPage = function () {
+    generatePage()
+        // .then(pageHTML => {
+        //     return writeFile(pageHTML);
+        // })
+        // .then(writeFileResponse => {
+        //     console.log(writeFileResponse);
+        //     return copyFile();
+        // })
+        // .then(copyFileResponse => {
+        //     console.log(copyFileResponse);
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // });
+}
 
 function getData() {
 
@@ -38,14 +55,17 @@ function getData() {
             }
         ])
 
+            //create new instance of Engineer
             .then(({ github, name, id, email, menu }) => {
                 this.engineer = new Engineer(github, name, id, email);
+
+                //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
                     this.getEngineerData();
                 } else if (menu === 'Intern') {
                     this.getInternData();
                 } else {
-                    console.log('Finished!')
+                    createPage();
                 }
             })
             .catch(err => {
@@ -84,14 +104,17 @@ function getData() {
             }
         ])
 
+            //create new instance of Intern
             .then(({ school, name, id, email, menu }) => {
                 this.intern = new Intern(school, name, id, email);
+
+                //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
                     this.getEngineerData();
                 } else if (menu === 'Intern') {
                     this.getInternData();
                 } else {
-                    console.log('Finished!')
+                    createPage();
                 }
             })
             .catch(err => {
@@ -130,14 +153,17 @@ function getData() {
             }
         ])
 
+            //create new instance of Manager
             .then(({ officeNumber, name, id, email, menu }) => {
-                this.manager = new Manager(officeNumber, name, id, email);
+                this.manager.push = new Manager(officeNumber, name, id, email)
+
+                //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
                     this.getEngineerData();
                 } else if (menu === 'Intern') {
                     this.getInternData();
                 } else {
-                    console.log('Finished!')
+                    createPage();
                 }
             })
             .catch(err => {
