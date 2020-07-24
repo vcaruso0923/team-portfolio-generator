@@ -6,7 +6,7 @@ const { writeFile, copyFile } = require('./utils/generate-site.js')
 const generatePage = require('./src/page-template.js');
 
 const createPage = function (data) {
-    generatePage()
+    generatePage(data)
         // .then(pageHTML => {
         //     return writeFile(pageHTML);
         // })
@@ -57,7 +57,8 @@ function getData() {
 
             //create new instance of Engineer
             .then(({ github, name, id, email, menu }) => {
-                team.engineers.push(new Engineer(github, name, id, email));
+                const newEngineer = new Engineer(github, name, id, email);
+                team.engineers.push(newEngineer)
 
                 //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
@@ -106,7 +107,8 @@ function getData() {
 
             //create new instance of Intern
             .then(({ school, name, id, email, menu }) => {
-                team.interns.push = new Intern(school, name, id, email);
+                const newIntern = new Intern(school, name, id, email);
+                team.interns.push(newIntern);
                 
                 //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
@@ -124,9 +126,9 @@ function getData() {
 
     getData.prototype.getManagerData = function () {
 
-        team: {
-            manager: [];
-            engineers: [];
+        let team = {
+            manager: [],
+            engineers: [],
             interns:[]
         };
 
@@ -161,8 +163,9 @@ function getData() {
 
             //create new instance of Manager
             .then(({ officeNumber, name, id, email, menu }) => {
-                team.manager.push = new Manager(officeNumber, name, id, email)
-
+                const newManager = new Manager(officeNumber, name, id, email);
+                    team.manager.push(newManager);
+                console.log(team)
                 //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
                     this.getEngineerData();
