@@ -1,13 +1,52 @@
-const generateManager = managerData => {
+const generateEngineer = () => {
+    const html = "";
+    team.iterns.forEach(intern => {
+        html += `
+        <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
+        <div class="card-header">${team.engineers.getRole()}</div>
+        <div class="card-body">
+        <h5 class="card-title">Light card title</h5>
+        <p class="card-text">${team.engineers.getName()}</p>
+            <p class="card-text">ID: ${team.engineers.getID()}</p>
+            <p class="card-text">Email: ${team.engineers.getEmail()}</p>
+            <p class="card-text">Office #: ${team.engineers.getGithub()}</p>
+        </div>
+        </div>
+        `
+    });
+    return html;
+
+}
+
+const generateIntern = () => {
+    const html = "";
+    team.iterns.forEach(intern => {
+        html += `
+        <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
+        <div class="card-header">${team.interns.getRole()}</div>
+        <div class="card-body">
+        <h5 class="card-title">Light card title</h5>
+        <p class="card-text">${team.interns.getName()}</p>
+        <p class="card-text">ID: ${team.interns.getID()}</p>
+        <p class="card-text">Email: ${team.interns.getEmail()}</p>
+            <p class="card-text">Office #: ${team.interns.getSchool()}</p>
+            </div>
+            </div>
+            `
+    });
+    return html;
+}
+
+const generateManager = () => {
     const html = "";
     html += `    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${managerData.getRole()}</div>
+        <div class="card-header">${team.manager.getRole()}</div>
             <div class="card-body">
             <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${managerData.getName()}</p>
-            <p class="card-text">ID: ${managerData.getID()}</p>
-            <p class="card-text">Email: ${managerData.getEmail()}</p>
-            <p class="card-text">Office #: ${managerData.getOfficeNumber()}</p>
+            <p class="card-text">${team.manager.getName()}</p>
+            <p class="card-text">ID: ${team.manager.getID()}</p>
+            <p class="card-text">Email: ${team.manager.getEmail()}</p>
+            <p class="card-text">Office #: ${team.manager.getOfficeNumber()}</p>
         </div>
     </div>
 `
@@ -15,46 +54,7 @@ const generateManager = managerData => {
 
 }
 
-const generateEngineer = engineersData => {
-    const html = "";
-    iterns.forEach(intern => {
-        html += `
-    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${engineersData.getRole()}</div>
-            <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${engineersData.getName()}</p>
-            <p class="card-text">ID: ${engineersData.getID()}</p>
-            <p class="card-text">Email: ${engineersData.getEmail()}</p>
-            <p class="card-text">Office #: ${engineersData.getGithub()}</p>
-        </div>
-    </div>
-`
-    });
-    return html;
-
-}
-
-const generateIntern = internsData => {
-    const html = "";
-    iterns.forEach(intern => {
-        html += `
-    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${internsData.getRole()}</div>
-            <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${internsData.getName()}</p>
-            <p class="card-text">ID: ${internsData.getID()}</p>
-            <p class="card-text">Email: ${internsData.getEmail()}</p>
-            <p class="card-text">Office #: ${internsData.getSchool()}</p>
-        </div>
-    </div>
-`
-    });
-    return html;
-}
-
-module.exports = templateData => {
+module.exports = () => {
     console.log(
         `
     <!DOCTYPE html>
@@ -77,9 +77,9 @@ module.exports = templateData => {
       </header>
 
       <main class="row">
-        ${generateManager(templateData.manager)}
-        ${generateEngineer(templateData.engineers)}
-        ${generateIntern(templateData.interns)}
+        ${generateManager()}
+        ${generateEngineer()}
+        ${generateIntern()}
       </main>
 
     </body>
