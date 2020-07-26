@@ -3,20 +3,21 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const { writeFile, copyFile } = require('./utils/generate-site.js')
-// const generatePage = require('./src/page-template.js');
 
+//empty team array to store inquirer responses
 let team = {
     manager: [],
     engineers: [],
     interns: []
 };
 
+//page HTML template
 const generatePage = () => {
 
     const generateManager = () => {
 
         return `    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">{team.manager[0].getRole()}</div>
+        <div class="card-header">Manager</div>
             <div class="card-body">
             <h5 class="card-title">Light card title</h5>
             <p class="card-text">${team.manager[0].getName().name}</p>
@@ -27,6 +28,49 @@ const generatePage = () => {
     </div>
 `
     }
+
+    const generateEngineer = () => {
+        if (team.engineers.length > 0) {
+            for (i = 0; team.engineers.length; i++) {
+                return `
+            <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
+            <div class="card-header">Engineer</div>
+            <div class="card-body">
+            <h5 class="card-title">Light card title</h5>
+            <p class="card-text">${team.engineers[i].getName().name}</p>
+                <p class="card-text">ID: ${team.engineers[i].getID().id}</p>
+                <p class="card-text">Email: ${team.engineers[i].getEmail().email}</p>
+                <p class="card-text">Office #: ${team.engineers[i].getGithub().github}</p>
+            </div>
+            </div>
+            `
+            };
+        } else {
+            return ''
+        }
+    }
+
+    const generateIntern = () => {
+        if (team.interns.length > 0) {
+            for (i = 0; team.interns.length; i++) {
+                return `
+                <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
+                <div class="card-header">Intern</div>
+                <div class="card-body">
+                <h5 class="card-title">Light card title</h5>
+                <p class="card-text">${team.interns[i].getName().name}</p>
+                <p class="card-text">ID: ${team.interns[i].getID().id}</p>
+                <p class="card-text">Email: ${team.interns[i].getEmail().email}</p>
+                    <p class="card-text">Office #: ${team.interns[i].getSchool().school}</p>
+                    </div>
+                    </div>
+                    `
+            };
+        } else {
+            return ''
+        }
+    }
+
 
     return `
     <!DOCTYPE html>
@@ -50,8 +94,8 @@ const generatePage = () => {
 
       <main class="row">
         ${generateManager()}
-        {generateEngineer()}
-        {generateIntern()}
+        ${generateEngineer()}
+        ${generateIntern()}
       </main>
 
     </body>
@@ -60,23 +104,25 @@ const generatePage = () => {
 
 };
 
+//build pare, write files, copy files
 const createPage = function () {
     generatePage()
-            // .then(pageHTML => {
-            //     return writeFile(pageHTML);
-            // })
-            // .then(writeFileResponse => {
-            //     console.log(writeFileResponse);
-            //     return copyFile();
-            // })
-            // .then(copyFileResponse => {
-            //     console.log(copyFileResponse);
-            // })
-            // .catch(err => {
-            //     console.log(err);
-            // });
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return copyFile();
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 }
 
+//inquirer
 function getData() {
 
     getData.prototype.getEngineerData = function () {
@@ -114,7 +160,6 @@ function getData() {
             .then(({ github, name, id, email, menu }) => {
                 const newEngineer = new Engineer(github, name, id, email);
                 team.engineers.push(newEngineer)
-                console.log(team)
 
                 //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
@@ -165,7 +210,6 @@ function getData() {
             .then(({ school, name, id, email, menu }) => {
                 const newIntern = new Intern(school, name, id, email);
                 team.interns.push(newIntern);
-                console.log(team)
 
                 //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
@@ -216,7 +260,7 @@ function getData() {
             .then(({ officeNumber, name, id, email, menu }) => {
                 const newManager = new Manager(officeNumber, name, id, email);
                 team.manager.push(newManager);
-                console.log(team)
+
                 //check if user wants to add new member - generate page if not
                 if (menu === 'Engineer') {
                     return this.getEngineerData();

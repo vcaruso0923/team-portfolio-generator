@@ -1,40 +1,36 @@
 const generateEngineer = () => {
-    const html = "";
     team.iterns.forEach(intern => {
-        html += `
+        return `
         <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${team.engineers.getRole()}</div>
+        <div class="card-header">{team.engineers.getRole()}</div>
         <div class="card-body">
         <h5 class="card-title">Light card title</h5>
-        <p class="card-text">${team.engineers.getName()}</p>
-            <p class="card-text">ID: ${team.engineers.getID()}</p>
-            <p class="card-text">Email: ${team.engineers.getEmail()}</p>
-            <p class="card-text">Office #: ${team.engineers.getGithub()}</p>
+        <p class="card-text">${team.engineers[i].getName()}</p>
+            <p class="card-text">ID: ${team.engineers[i].getID()}</p>
+            <p class="card-text">Email: ${team.engineers[i].getEmail()}</p>
+            <p class="card-text">Office #: ${team.engineers[i].getGithub()}</p>
         </div>
         </div>
         `
     });
-    return html;
 
 }
 
 const generateIntern = () => {
-    const html = "";
     team.iterns.forEach(intern => {
-        html += `
+        return `
         <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">${team.interns.getRole()}</div>
+        <div class="card-header">{team.interns.getRole()}</div>
         <div class="card-body">
         <h5 class="card-title">Light card title</h5>
-        <p class="card-text">${team.interns.getName()}</p>
-        <p class="card-text">ID: ${team.interns.getID()}</p>
-        <p class="card-text">Email: ${team.interns.getEmail()}</p>
-            <p class="card-text">Office #: ${team.interns.getSchool()}</p>
+        <p class="card-text">${team.interns[i].getName()}</p>
+        <p class="card-text">ID: ${team.interns[i].getID()}</p>
+        <p class="card-text">Email: ${team.interns[i].getEmail()}</p>
+            <p class="card-text">Office #: ${team.interns[i].getSchool()}</p>
             </div>
             </div>
             `
     });
-    return html;
 }
 
 const generateManager = () => {
