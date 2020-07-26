@@ -11,21 +11,22 @@ let team = {
     interns: []
 };
 
-//page HTML template
+//create page HTML then write index.html and copy style.css
 const generatePage = () => {
 
     const generateManager = () => {
 
-        return `    <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-        <div class="card-header">Manager</div>
-            <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${team.manager[0].getName().name}</p>
-            <p class="card-text">ID: ${team.manager[0].getID().id}</p>
-            <p class="card-text">Email: ${team.manager[0].getEmail().email}</p>
-            <p class="card-text">Office #: ${team.manager[0].getOfficeNumber().officeNumber}</p>
-        </div>
-    </div>
+        return `    
+        <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 18rem;">
+            <div class="card-header">Manager</div>
+                <div class="card-body">
+                    <h5 class="card-title">${team.manager[0].getName().name}</h5>
+                    <p class="card-text">ID: ${team.manager[0].getID().id}</p>
+                    <p class="card-text">Email: ${team.manager[0].getEmail().email}</p>
+                    <p class="card-text">Office #: ${team.manager[0].getOfficeNumber().officeNumber}</p>
+                </div>
+            </div>
+
 `
     }
 
@@ -33,16 +34,15 @@ const generatePage = () => {
         if (team.engineers.length > 0) {
             for (i = 0; team.engineers.length; i++) {
                 return `
-            <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-            <div class="card-header">Engineer</div>
-            <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">${team.engineers[i].getName().name}</p>
-                <p class="card-text">ID: ${team.engineers[i].getID().id}</p>
-                <p class="card-text">Email: ${team.engineers[i].getEmail().email}</p>
-                <p class="card-text">Office #: ${team.engineers[i].getGithub().github}</p>
-            </div>
-            </div>
+            <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 30rem;">
+                <div class="card-header">Engineer</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${team.engineers[i].getName().name}</h5>
+                        <p class="card-text">ID: ${team.engineers[i].getID().id}</p>
+                        <p class="card-text">Email: ${team.engineers[i].getEmail().email}</p>
+                        <a class="card-text" href="https://github.com/${team.engineers[i].getGithub().github}" target="_blank">Github Profile</a>
+                    </div>
+                </div>
             `
             };
         } else {
@@ -54,17 +54,16 @@ const generatePage = () => {
         if (team.interns.length > 0) {
             for (i = 0; team.interns.length; i++) {
                 return `
-                <div class="card bg-light mb-3" style="max-wgetID()th: 18rem;">
-                <div class="card-header">Intern</div>
-                <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
-                <p class="card-text">${team.interns[i].getName().name}</p>
-                <p class="card-text">ID: ${team.interns[i].getID().id}</p>
-                <p class="card-text">Email: ${team.interns[i].getEmail().email}</p>
-                    <p class="card-text">Office #: ${team.interns[i].getSchool().school}</p>
+                <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 18rem;">
+                    <div class="card-header">Intern</div>
+                        <div class="card-body">
+                            <h5 class="card-title">${team.interns[i].getName().name}</h5>
+                            <p class="card-text">ID: ${team.interns[i].getID().id}</p>
+                            <p class="card-text">Email: ${team.interns[i].getEmail().email}</p>
+                            <p class="card-text">School: ${team.interns[i].getSchool().school}</p>
+                        </div>
                     </div>
-                    </div>
-                    `
+                `
             };
         } else {
             return ''
@@ -72,13 +71,13 @@ const generatePage = () => {
     }
 
 
-    return `
+    const pageHTML = `
     <!DOCTYPE html>
     <html lang="en">
   
     <head>
       <meta charset="UTF-8">
-      <meta getName()="viewport" content="wgetID()th=device-wgetID()th, initial-scale=1.0">
+      <meta getName()="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>My Team</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -88,39 +87,34 @@ const generatePage = () => {
     <body>
       <header>
         <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1">Navbar</span>
+            <span class="navbar-brand mb-0 h1">My Team</span>
         </nav>
       </header>
 
-      <main class="row">
-        ${generateManager()}
-        ${generateEngineer()}
-        ${generateIntern()}
+      <main id="main-element">
+        <div class="row" id="row-container">
+            ${generateManager()}
+            ${generateEngineer()}
+            ${generateIntern()}
+        </div>
       </main>
 
     </body>
     </html>
     `
+    return writeFile(pageHTML)
+        .then(writeFileResponse => {
+            console.log(writeFileResponse);
+            return copyFile();
+        })
+        .then(copyFileResponse => {
+            console.log(copyFileResponse);
+        })
+        .catch(err => {
+            console.log(err);
+        });;
 
 };
-
-//build pare, write files, copy files
-const createPage = function () {
-    generatePage()
-    .then(pageHTML => {
-        return writeFile(pageHTML);
-    })
-    .then(writeFileResponse => {
-        console.log(writeFileResponse);
-        return copyFile();
-    })
-    .then(copyFileResponse => {
-        console.log(copyFileResponse);
-    })
-    .catch(err => {
-        console.log(err);
-    });
-}
 
 //inquirer
 function getData() {
@@ -167,7 +161,7 @@ function getData() {
                 } else if (menu === 'Intern') {
                     return this.getInternData();
                 } else if (menu === 'No thanks!') {
-                    return createPage();
+                    return generatePage();
                 }
             })
             .catch(err => {
@@ -217,7 +211,7 @@ function getData() {
                 } else if (menu === 'Intern') {
                     return this.getInternData();
                 } else if (menu === 'No thanks!') {
-                    return createPage();
+                    return generatePage();
                 }
             })
             .catch(err => {
