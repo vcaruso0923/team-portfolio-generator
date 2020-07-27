@@ -32,8 +32,9 @@ const generatePage = () => {
 
     const generateEngineer = () => {
         if (team.engineers.length > 0) {
-            for (i = 0; team.engineers.length; i++) {
-                return `
+            let engineerString = ``
+            for (i = 0; i < team.engineers.length; i++) {
+                engineerString += `
             <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 30rem;">
                 <div class="card-header">Engineer</div>
                     <div class="card-body">
@@ -45,6 +46,7 @@ const generatePage = () => {
                 </div>
             `
             };
+            return engineerString
         } else {
             return ''
         }
@@ -52,9 +54,10 @@ const generatePage = () => {
 
     const generateIntern = () => {
         if (team.interns.length > 0) {
-            for (i = 0; team.interns.length; i++) {
-                return `
-                <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 18rem;">
+            let internString = ``
+            for (i = 0; i < team.interns.length; i++) {
+                internString += `
+                <div class="card bg-light mb-3 custom-card-class col-4" style="max width: 18rem;">
                     <div class="card-header">Intern</div>
                         <div class="card-body">
                             <h5 class="card-title">${team.interns[i].getName().name}</h5>
@@ -65,6 +68,7 @@ const generatePage = () => {
                     </div>
                 `
             };
+            return internString
         } else {
             return ''
         }
@@ -165,7 +169,7 @@ function getData() {
                 }
             })
             .catch(err => {
-                console.log('Error!')
+                console.log(err)
             })
     }
 
@@ -215,7 +219,7 @@ function getData() {
                 }
             })
             .catch(err => {
-                console.log('Error!')
+                console.log(err)
             })
     }
 
@@ -265,7 +269,7 @@ function getData() {
                 }
             })
             .catch(err => {
-                console.log('Error!')
+                console.log(err)
             })
     };
 }
