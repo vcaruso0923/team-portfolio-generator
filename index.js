@@ -18,7 +18,7 @@ const generatePage = () => {
 
         return `    
         <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 18rem;">
-            <div class="card-header">Manager</div>
+            <div class="card-header custom-card-header" id="manager-card-header">Manager</div>
                 <div class="card-body">
                     <h5 class="card-title">${team.manager[0].getName().name}</h5>
                     <p class="card-text">ID: ${team.manager[0].getID().id}</p>
@@ -36,7 +36,7 @@ const generatePage = () => {
             for (i = 0; i < team.engineers.length; i++) {
                 engineerString += `
             <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 30rem;">
-                <div class="card-header">Engineer</div>
+                <div class="card-header custom-card-header" id="engineer-card-header">Engineer</div>
                     <div class="card-body">
                         <h5 class="card-title">${team.engineers[i].getName().name}</h5>
                         <p class="card-text">ID: ${team.engineers[i].getID().id}</p>
@@ -58,8 +58,8 @@ const generatePage = () => {
             for (i = 0; i < team.interns.length; i++) {
                 internString += `
                 <div class="card bg-light mb-3 custom-card-class col-4" style="max width: 18rem;">
-                    <div class="card-header">Intern</div>
-                        <div class="card-body">
+                    <div class="card-header custom-card-header" id="intern-card-header">Intern</div>
+                        <div class="card-body custom-card-header">
                             <h5 class="card-title">${team.interns[i].getName().name}</h5>
                             <p class="card-text">ID: ${team.interns[i].getID().id}</p>
                             <a class="card-text" href="mailto:${team.interns[0].getEmail().email}">${team.interns[0].getEmail().email}</a>
@@ -91,12 +91,12 @@ const generatePage = () => {
     <body>
       <header>
         <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1">My Team</span>
+            <span class="navbar-brand mb-0 h1" id="custom-navbar">My Team</span>
         </nav>
       </header>
 
       <main id="main-element">
-        <div class="row" id="row-container">
+        <div class="row justify-content-center" id="row-container">
             ${generateManager()}
             ${generateEngineer()}
             ${generateIntern()}

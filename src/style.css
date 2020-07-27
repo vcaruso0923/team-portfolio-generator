@@ -1,6 +1,27 @@
 #main-element {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding-top: 50px;
+}
+
+#custom-navbar {
+    font-size: 3vw;
+}
+
+.custom-card-class {
+    margin: 10px;
+}
+
+.custom-card-header {
+    text-align: center;
+}
+
+#manager-card-header {
+    background-color: rgba(141, 60, 248, 0.5);
+}
+
+#engineer-card-header {
+    background-color: rgb(127, 168, 255, 0.5);
+}
+
+#intern-card-header {
+    background-color: rgba(121, 245, 204, 0.5);
 }
