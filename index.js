@@ -129,22 +129,54 @@ function getData() {
             {
                 type: 'text',
                 name: 'name',
-                message: 'What is the engineers name?'
+                message: 'What is the engineers name?',
+                validate: nameInput => {
+                    if (nameInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a name!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'id',
-                message: 'What is the engineers ID?'
+                message: 'What is the engineers ID?',
+                validate: idInput => {
+                    if (idInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an ID!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'email',
-                message: 'What is the engineers email?'
+                message: 'What is the engineers email?',
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an Email!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'github',
-                message: 'What is this engineers github?'
+                message: 'What is this engineers github?',
+                validate: githubInput => {
+                    if (githubInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a github name!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
@@ -179,22 +211,54 @@ function getData() {
             {
                 type: 'text',
                 name: 'name',
-                message: 'What is the interns name?'
+                message: 'What is the interns name?',
+                validate: nameInput => {
+                    if (nameInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a name!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'id',
-                message: 'What is the interns ID?'
+                message: 'What is the interns ID?',
+                validate: idInput => {
+                    if (idInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an ID!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'email',
-                message: 'What is the interns email?'
+                message: 'What is the interns email?',
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an Email!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'school',
-                message: 'What is the name of this interns school?'
+                message: 'What is the name of this interns school?',
+                validate: schoolInput => {
+                    if (schoolInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a school name!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
@@ -229,22 +293,54 @@ function getData() {
             {
                 type: 'text',
                 name: 'name',
-                message: 'What is the managers name?'
+                message: 'What is the managers name?',
+                validate: nameInput => {
+                    if (nameInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a name!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'officeNumber',
-                message: 'What is the managers office number?'
+                message: 'What is the managers office number?',
+                validate: officeNumberInput => {
+                    if (officeNumberInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an office number!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'id',
-                message: 'What is the managers ID?'
+                message: 'What is the managers ID?',
+                validate: idInput => {
+                    if (idInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an ID!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'email',
-                message: 'What is the managers email?'
+                message: 'What is the managers email?',
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter an Email!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
