@@ -22,7 +22,7 @@ const generatePage = () => {
                 <div class="card-body">
                     <h5 class="card-title">${team.manager[0].getName().name}</h5>
                     <p class="card-text">ID: ${team.manager[0].getID().id}</p>
-                    <p class="card-text">Email: ${team.manager[0].getEmail().email}</p>
+                    <a class="card-text" href="mailto:${team.manager[0].getEmail().email}">${team.manager[0].getEmail().email}</a>
                     <p class="card-text">Office #: ${team.manager[0].getOfficeNumber().officeNumber}</p>
                 </div>
             </div>
@@ -40,7 +40,7 @@ const generatePage = () => {
                     <div class="card-body">
                         <h5 class="card-title">${team.engineers[i].getName().name}</h5>
                         <p class="card-text">ID: ${team.engineers[i].getID().id}</p>
-                        <p class="card-text">Email: ${team.engineers[i].getEmail().email}</p>
+                        <a class="card-text" href="mailto:${team.engineers[0].getEmail().email}">${team.engineers[0].getEmail().email}</a>
                         <a class="card-text" href="https://github.com/${team.engineers[i].getGithub().github}" target="_blank">Github Profile</a>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ const generatePage = () => {
                         <div class="card-body">
                             <h5 class="card-title">${team.interns[i].getName().name}</h5>
                             <p class="card-text">ID: ${team.interns[i].getID().id}</p>
-                            <p class="card-text">Email: ${team.interns[i].getEmail().email}</p>
+                            <a class="card-text" href="mailto:${team.interns[0].getEmail().email}">${team.interns[0].getEmail().email}</a>
                             <p class="card-text">School: ${team.interns[i].getSchool().school}</p>
                         </div>
                     </div>
