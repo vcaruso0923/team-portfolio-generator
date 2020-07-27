@@ -12,7 +12,7 @@ test ('Creates Intern class', () => {
 test ('Creates school object', () => {
     const intern = new Intern('school', 'Steve', '123', "something@something.com");
 
-    expect(intern.getSchool()).toHaveProperty('github')
+    expect(intern.getSchool()).toHaveProperty('school')
 })
 
 test ('Assign role', () => {
