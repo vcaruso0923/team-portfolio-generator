@@ -156,14 +156,18 @@ function getData() {
                 type: 'text',
                 name: 'email',
                 message: 'What is the engineers email?',
-                validate: emailInput => {
-                    if (emailInput) {
+                validate: function (email) {
+
+                    valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+                    if (valid) {
+                        console.log("Great job");
                         return true;
                     } else {
-                        console.log('Please enter an Email!');
                         return false;
                     }
                 }
+
             },
             {
                 type: 'text',
@@ -238,11 +242,14 @@ function getData() {
                 type: 'text',
                 name: 'email',
                 message: 'What is the interns email?',
-                validate: emailInput => {
-                    if (emailInput) {
+                validate: function (email) {
+
+                    valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+                    if (valid) {
                         return true;
                     } else {
-                        console.log('Please enter an Email!');
+                        console.log(".  Please enter a valid email")
                         return false;
                     }
                 }
@@ -333,11 +340,14 @@ function getData() {
                 type: 'text',
                 name: 'email',
                 message: 'What is the managers email?',
-                validate: emailInput => {
-                    if (emailInput) {
+                validate: function (email) {
+
+                    valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+                    if (valid) {
                         return true;
                     } else {
-                        console.log('Please enter an Email!');
+                        console.log(".  Please enter a valid email")
                         return false;
                     }
                 }
