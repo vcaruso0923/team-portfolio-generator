@@ -17,12 +17,12 @@ const generatePage = () => {
     const generateManager = () => {
 
         return `    
-        <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 18rem;">
+        <div class="card bg-light mb-3 custom-card-class col-3">
             <div class="card-header custom-card-header" id="manager-card-header">Manager</div>
                 <div class="card-body">
                     <h5 class="card-title">${team.manager[0].getName().name}</h5>
                     <p class="card-text">ID: ${team.manager[0].getID().id}</p>
-                    <a class="card-text" href="mailto:${team.manager[0].getEmail().email}">${team.manager[0].getEmail().email}</a>
+                    <p><a class="card-text" href="mailto:${team.manager[0].getEmail().email}">${team.manager[0].getEmail().email}</a></p>
                     <p class="card-text">Office #: ${team.manager[0].getOfficeNumber().officeNumber}</p>
                 </div>
             </div>
@@ -35,13 +35,13 @@ const generatePage = () => {
             let engineerString = ``
             for (i = 0; i < team.engineers.length; i++) {
                 engineerString += `
-            <div class="card bg-light mb-3 custom-card-class col-4" style="max-width: 30rem;">
+            <div class="card bg-light mb-3 custom-card-class col-3">
                 <div class="card-header custom-card-header" id="engineer-card-header">Engineer</div>
                     <div class="card-body">
                         <h5 class="card-title">${team.engineers[i].getName().name}</h5>
                         <p class="card-text">ID: ${team.engineers[i].getID().id}</p>
-                        <a class="card-text" href="mailto:${team.engineers[0].getEmail().email}">${team.engineers[0].getEmail().email}</a>
-                        <a class="card-text" href="https://github.com/${team.engineers[i].getGithub().github}" target="_blank">Github Profile</a>
+                        <p><a class="card-text" href="mailto:${team.engineers[i].getEmail().email}">${team.engineers[i].getEmail().email}</a></p>
+                        <p><a class="card-text" href="https://github.com/${team.engineers[i].getGithub().github}" target="_blank">Github Profile</a></p>
                     </div>
                 </div>
             `
@@ -57,12 +57,12 @@ const generatePage = () => {
             let internString = ``
             for (i = 0; i < team.interns.length; i++) {
                 internString += `
-                <div class="card bg-light mb-3 custom-card-class col-4" style="max width: 18rem;">
+                <div class="card bg-light mb-3 custom-card-class col-3">
                     <div class="card-header custom-card-header" id="intern-card-header">Intern</div>
-                        <div class="card-body custom-card-header">
+                        <div class="card-body">
                             <h5 class="card-title">${team.interns[i].getName().name}</h5>
                             <p class="card-text">ID: ${team.interns[i].getID().id}</p>
-                            <a class="card-text" href="mailto:${team.interns[0].getEmail().email}">${team.interns[0].getEmail().email}</a>
+                            <p><a class="card-text" href="mailto:${team.interns[i].getEmail().email}">${team.interns[i].getEmail().email}</a></p>
                             <p class="card-text">School: ${team.interns[i].getSchool().school}</p>
                         </div>
                     </div>
