@@ -15,6 +15,8 @@ https://drive.google.com/file/d/1m3_57XCk3py8wgi1JxSe8hn4fafQwTmm/view
 * [Tests](#tests)
 * [Questions](#questions)
 
+![team portfolio generator](https://user-images.githubusercontent.com/62676730/100021754-d5307880-2d96-11eb-9c8a-d558011fe7d6.PNG)
+
 ## Installation
 
 Clone the repository. Open the repo in a console. Run 'npm install' to install node modules.
